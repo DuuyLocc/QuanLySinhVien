@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Trang chủ</h1>
+
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+                <!-- Color System -->
+                <div class="row ">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-primary text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="LopHocPhan" asp-action="Index">
+                                    <i class="fas fa-fw fa-calendar-alt"></i>
+                                    <span>Lớp học phần</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-success text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="MonHoc" asp-action="Index">
+                                    <i class="fas fa-fw fa-book"></i>
+                                    <span>Môn học</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-info text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="SinhVien" asp-action="Index">
+                                    <i class="fas fa-fw fa-graduation-cap"></i>
+                                    <span>Sinh viên</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-warning text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="GiangVien" asp-action="Index">
+                                    <i class="fas fa-fw fa-chalkboard-teacher"></i>
+                                    <span>Giảng viên</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-danger text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="LopBienChe" asp-action="Index">
+                                    <i class="fas fa-fw fa-user-friends"></i>
+                                    <span>Lớp biên chế</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-secondary text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="ChuongTrinhDaoTao" asp-action="Index">
+                                    <i class="fas fa-fw fa-atlas"></i>
+                                    <span>Chương trình đào tạo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-light text-black shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-dark" asp-controller="Phong" asp-action="Index">
+                                    <i class="fas fa-fw fa-door-open"></i>
+                                    <span>Phòng</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-dark text-white shadow">
+                            <div class="card-body">
+                                <a class="nav-link collapsed text-white" asp-controller="HocKyNamHoc" asp-action="Index">
+                                    <i class="fas fa-fw fa-hourglass-half"></i>
+                                    <span>Học kỳ</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+                <!-- Illustrations -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Đại học Văn Hiến</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 20rem;" src="~/img/dai-hoc-van-hien.png" alt="">
+                        </div>
+                        <p class="text-justify">Trường Đại học Văn Hiến là cơ sở giáo dục đại học định hướng ứng dụng, với ngành nghề đào tạo đa dạng. Nhà trường luôn đổi mới chương trình đào tạo theo hướng hội nhập quốc tế, chú trọng bảo tồn và phát huy bản sắc văn hoá Việt Nam và linh hoạt theo yêu cầu phát triển kinh tế xã hội của đất nước.
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>

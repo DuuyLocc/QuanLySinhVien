@@ -1,0 +1,78 @@
+﻿@model QuanLySinhVien.ViewModel.Common.PagedResult<QuanLySinhVien.ViewModel.Catalog.ChiTietChuongTrinhDaoTaos.ChiTietChuongTrinhDaoTaoViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Danh sách môn học trong chương trình đào tạo</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="user-topbar">
+                <div class="float-left">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <span class="btn btn-success text-white">
+                            @(Html.ActionLink("Tạo mới", "CreateChiTietCTDT", "ChuongTrinhDaoTao", new { id= ViewBag.ID_CTDT }, new { @class = "text-white" }))
+                        </span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>
+                            Hoc kỳ
+                        </th>
+                        <th>
+                            Môn học
+                        </th>
+                        <th>
+                            Số tín chỉ
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int stt = 1;}
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @stt
+                                @{ stt++;}
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HocKyDuKien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_MonHoc)
+                                @Html.DisplayFor(modelItem => item.MonHoc.TenMonHoc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MonHoc.SoTinChi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", "MonHoc" ,new { id = item.ID_MonHoc }) |
+                                @Html.ActionLink("Remove", "DeleteChiTietCTDT", "ChuongTrinhDaoTao", new { idctdt = item.ID_ChuongTrinhDaoTao, idmonhoc = item.ID_MonHoc}, null)                 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @await Component.InvokeAsync("Pager", Model)
+        </div>
+    </div>
+</div>
+

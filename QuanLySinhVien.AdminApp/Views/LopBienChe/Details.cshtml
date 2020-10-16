@@ -1,0 +1,89 @@
+﻿@model QuanLySinhVien.ViewModel.Catalog.LopBienChes.LopBienCheViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class="col-sm-2">
+            Năm bắt đầu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NamBatDau)
+        </dd>
+        <dt class="col-sm-2">
+            Năm kết thúc
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NamKetThuc)
+        </dd>
+        <dt class="col-sm-2">
+            Khoa
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ID_Khoa)
+        </dd>
+        <dt class="col-sm-2">
+            Giảng viên
+        </dt>
+        <dd class="col-sm-10">
+            <a class="" asp-controller="GiangVien" asp-action="Details" asp-route-id="@Model.GiangVien.ID">
+                @Html.DisplayFor(model => model.GiangVien.HoTen)
+            </a>
+        </dd>
+        <hr />
+        <h4>Danh sách sinh viên</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID Sinh viên</th>
+                    <th scope="col">Họ</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.SinhViens != null)
+                {
+                    @foreach (var sv in Model.SinhViens)
+                    {
+                        <tr>
+                            <th>
+                                @sv.ID
+                            </th>
+                            <td>
+                                @sv.Ho
+                            </td>
+                            <td>
+                                @sv.Ten
+                            </td>
+                            <td>
+                                @sv.Email
+                            </td>
+                            <td>
+                                @sv.SoDienThoai
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-success" asp-controller="SinhVien" asp-action="Details" asp-route-id="@sv.ID">Chi tiết</a>
+                                    <a class="btn btn-danger" asp-controller="SinhVien" asp-action="Edit" asp-route-id="@sv.ID">Chỉnh sửa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </dl>
+</div>

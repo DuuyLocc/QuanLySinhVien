@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Catalog\ChuongTrinhDaoTao\**" />
+    <Compile Remove="Catalog\GiangVien\**" />
+    <Compile Remove="Catalog\SinhVien\**" />
+    <EmbeddedResource Remove="Catalog\ChuongTrinhDaoTao\**" />
+    <EmbeddedResource Remove="Catalog\GiangVien\**" />
+    <EmbeddedResource Remove="Catalog\SinhVien\**" />
+    <None Remove="Catalog\ChuongTrinhDaoTao\**" />
+    <None Remove="Catalog\GiangVien\**" />
+    <None Remove="Catalog\SinhVien\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLySinhVien.Data\QuanLySinhVien.Data.csproj" />
+  </ItemGroup>
+
+</Project>

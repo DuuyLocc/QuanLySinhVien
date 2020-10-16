@@ -1,0 +1,99 @@
+﻿@model QuanLySinhVien.ViewModel.Common.PagedResult<QuanLySinhVien.ViewModel.Catalog.DanhSachSinhViens.DanhSachSinhVienViewModel>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $("#msgAlert").fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Lớp học phần@(Html.ActionLink("Sửa thông tin", "Edit", "LopHocPhan", new { id = ViewBag.infoLopHocPhan.ID }, new { @class = "btn btn-warning text-dark ml-2" })) </h1>
+    <table class="table table-sm table-bordered">
+        <tr>
+            <td>Mã lớp học phần: @ViewBag.infoLopHocPhan.ID</td>
+            <td>Ngày học: @ViewBag.infoLopHocPhan.NgayHoc</td>
+            <td>Buổi học: @ViewBag.infoLopHocPhan.BuoiHoc</td>
+        </tr>
+        <tr>
+            <td>Giảng viên: @ViewBag.infoLopHocPhan.GiangVien.HoTen</td>
+            <td>Học kỳ: @ViewBag.infoLopHocPhan.HK_HocKy</td>
+            <td>Năm học: @ViewBag.infoLopHocPhan.HK_NamHoc</td>
+        </tr>
+    </table>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="user-topbar">
+                <div class="float-left">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <span class="btn btn-success text-white">
+                            @(Html.ActionLink("Thêm sinh viên", "AddStudentToClass", "LopHocPhan", new { id= ViewBag.ID_LopHocPhan }, new { @class = "text-white" }))
+                        </span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+            <table class="table table-sm table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            ID Sinh Viên
+                        </th>
+                        <th>
+                            Họ tên
+                        </th>
+                        <th>
+                            ID Lớp Học Phần
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int stt = 1;}
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @stt
+                                @{ stt++;}
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_SinhVien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SinhVien.HoTen)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Xóa", "DeleteStudent", "LopHocPhan", new { lophocphan = item.ID_LopHocPhan, sinhvien = item.ID_SinhVien })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @await Component.InvokeAsync("Pager", Model)
+        </div>
+    </div>
+</div>
+
+
+
+
